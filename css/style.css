@@ -1,0 +1,10 @@
+.slide_wrap{position:relative;width:640px;margin: 0 auto;}
+.slide_wrap .bt_control{position: absolute;top:50%;}
+.slide_wrap .bt_control a{background:#fff;position:absolute;top:-15px;text-indent:99999px;width:30px;height:30px;}
+.slide_wrap .bt_control a.bt_next{right: -640px;}
+.slide_view{overflow:hidden;width:640px;height:250px;}
+.slide_view  ul {width:3200px;}
+.slide_view  ul li{float:left;width: 640px;}
+.carusel ul li{float:left;margin-right: 3px;}
+.carusel ul li a{background-color:orange;border-radius:50%;display:inline-block;width:10px;height:10px;text-indent:99999px;}
+.carusel ul li a.active{background-color:green;}

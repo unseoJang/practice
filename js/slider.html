@@ -1,0 +1,403 @@
+/ autoslider /
+
+<!doctype html>
+<html>
+<head></head>
+<body>
+	<style type="text/css">
+		*{border:0;padding: 0;margin:0;}
+		.slider{position: relative;}
+		ul li{list-style-type: none;}
+		.img{margin:40px auto 0;width:100%;height:640px;}
+		.img ul{position: relative;}
+		.img ul li {opacity:0;position:absolute;left:0;top:0;}
+		.img ul li:first-child{opacity:1;}
+		.btns{margin: 0;padding: 0;width: 100%;text-align: center;position:absolute;top: 50%;}
+		.btns .btn_prev{left: 0;position:absolute;background-color:rgba(130,130,130,0.52);}
+		.btns .btn_next{ right: 0;position:absolute;background-color:rgba(130,130,130,0.52);}
+
+		.bar{position:relative;display: block;width: 100%;background:#eee;margin: 0 auto;text-indent:999%;}
+		.progress {position: relative;width: 100%;height: 15px;}
+		.progress #progressbar {position: absolute;height: 15px;height: 100%;}
+
+		.text_bx{position:absolute;top:481px;width:326px;}
+		.text_bx .en_text{font-family:'TimesNewRoman', "Times New Roman", Times, 'Baskerville', Georgia, serif;font-size:27.64px;line-height:38px;color:#fff;font-style:italic;}
+		.text_bx .ko_text{font-family:'Nanum Gothic', serif;font-size:35px;line-height:46px;color:#fff;white-space:nowrap;}
+
+		
+		.text_bx {opacity:0;}
+		.text_bx.text_bx_show {opacity:1;}
+		.text_bx.text_bx_show, .text_bx.text_bx_show * {transition:all 1.2s;}
+
+		.text_bx {opacity:0;}
+		.text_bx .en_text {transform: translateX(-150px);}
+		.text_bx .ko_text {transform: translateX(150px);}
+
+		.text_bx.text_bx_show, .text_bx.text_bx_show * {transition:all 1.2s;}
+		.text_bx.text_bx_show .en_text {transform: translateX(0);}
+		.text_bx.text_bx_show .ko_text {transform: translateX(0);}
+
+		.bt_view{position:absolute;left:0;bottom:39px;}
+		.bt_view a {border:solid 1px #fff;padding:6px 15px 6px 14px;display:block;width:100%;font-size:14px;color:#fff;}
+
+		li {font-size:32px;color:#444;text-align:center;width:600px;height:640px;}
+		li:nth-child(1) {background:#000;}
+		li:nth-child(2) {background:#666;}
+		li:nth-child(3) {background:#222;}
+		li:nth-child(4) {background:#888;}
+		li:nth-child(5) {background:#444;}
+		li:nth-child(6) {background:#999;}
+		li .text_bx {text-align:left;}
+	</style>
+	<div class="slider">
+		<div class="img">
+			<ul>
+				<li data-progress="#ff5252">
+					1
+					<!-- <img src="/_DATA_/_new_/banner_image/1486114617_default20.jpg"> -->
+					<div class="text_bx">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+				<li data-progress="#ff5252">
+					2
+					<!-- <img src="/_DATA_/_new_/banner_image/1485999990_default4.jpg"> -->
+					<div class="text_bx">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+				<li data-progress="#ff5252">
+					3
+					<!-- <img src="/_DATA_/_new_/banner_image/1486114784_default20.jpg"> -->
+					<div class="text_bx">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+				<li data-progress="#ff5252">
+					4
+					<!-- <img src="/_DATA_/_new_/banner_image/"> -->
+					<div class="text_bx">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+				<li data-progress="#ff5252">
+					5
+					<!-- <img src="/_DATA_/_new_/banner_image/1486114947_default24.jpg"> -->
+					<div class="text_bx">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+				<li data-progress="#ff5252">
+					6
+					<!-- <img src="/_DATA_/_new_/banner_image/"> -->
+					<div class="text_bx text_bx_show">
+						<div class="en_text">European Eyes Silicone</div>
+						<div class="ko_text">유러피안아이즈 실리콘</div>
+					</div>
+					<div class="bt_view">
+						<a href="http://www.lenstown.co.kr/home/event/event_detail.php?uid=6&amp;tab=1">VIEW NOW</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="progress"></div>
+		<div class="control">
+			<div class="btns">
+				<a href="#" class="btn_prev">이전</a>
+				<a href="#" class="btn_next">다음</a>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){//document load
+			sliderInit();
+
+			sliderMove();
+			var autoSlider = setInterval(sliderMove,time);
+
+			$('.btns a').click(function(){
+				clickChk=true;
+				clearInterval(autoSlider);
+			 	
+				if($(this).attr('class') == 'btn_prev') {
+					if(currIdx==0) currIdx = bannerCont.length-1;
+					else currIdx--;
+				}else if($(this).attr('class') == 'btn_next') {
+					if(currIdx==bannerCont.length-1) currIdx = 0;
+					else currIdx++;
+				}
+
+				sliderMove();
+				autoSlider = setInterval(sliderMove,time);
+
+				return false;
+			});
+
+	    });
+
+		var currIdx, oldIdx, bannerCont;
+		var clickChk = false;
+
+		function sliderInit(){
+			bannerCont = $('.img li');
+			currIdx = 0;
+			oldIdx = 0;
+		}
+
+		var time = 5000;
+		var firstChk=false;
+		function sliderMove(){
+			if(!firstChk) {
+				firstChk = true;
+			}else {
+				if(!clickChk) {
+					if(currIdx==bannerCont.length-1) currIdx=0;
+					else currIdx++;
+				}else {
+					clickChk = false;
+				}
+				
+				bannerCont.animate({'opacity':0}, 400);
+				bannerCont.eq(currIdx).animate({'opacity':1}, 400);
+
+				bannerCont.eq(oldIdx).find('.text_bx').removeClass("text_bx_show");
+			}
+			bannerCont.eq(currIdx).find('.text_bx').addClass("text_bx_show");
+
+			progressMotion();
+			oldIdx=currIdx;
+		}
+		function progressMotion(){
+			//progress 색상 변환
+			$('.progress').html('<span id = "progressbar"></span>');
+			var progressColor = bannerCont.eq(currIdx).attr('data-progress');
+			$('.progress #progressbar').css({'background-color':progressColor});
+			$('#progressbar').animate({'width':100+'%'},time);//animate로 width값을 늘림
+		}
+	</script>
+</body>
+</html>
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+* autoSlider 알고리즘
+1. 각 컨텐츠를 idx라는 가상의 번호를 부여하여 컨트롤한다.
+    currIdx:보여야하는 컨텐츠의 idx , oldIdx:사라져야하는 컨텐츠의 idx;
+    한정된 갯수의 컨텐츠를 무한루프로 돌리기 위해, currIdx는 1씩 증가하며, 슬라이더의 갯수만큼 커지면 처음(0)으로 되돌린다.
+    if(currIdx==bannerCont.length-1) currIdx = 0;
+  else currIdx++;
+
+2. 각 배너는 opacity로 보였다 사라졌다 하므로, 
+    보여야 하는 컨텐츠는 bannerCont.eq(currIdx).animate({'opacity':1});
+    사라져야 하는 컨텐츠는 bannerCont.eq(oldIdx).animate({'opacity':0});
+
+3. 모든 동작을 마치면 oldIdx를 currIdx로 바꿔준다.
+
+4. 각 슬라이더가 동작하는 동안 width값이 0-->100%가 되는 프로그레스 바를 만든다.
+    $('#progressbar').css({'width':0}).animate({'width':100+'%'},time);
+    * 이 때, 한번에 동작하는 엘리먼트가 너무 많아 css({'width':0}) 부분이 제대로 동작하지 않는 이슈가 있어, 
+      width값을 100%로 바꿔주기 전, 아예 #progressbar 엘리먼트 자체를 없앴다가 새로 넣어주는 방식으로 변경하였다.
+     $('.progress').html('<span id="progressbar"></span>');
+   $('#progressbar').css({'width':0;});
+    
+5. 각 프로그레스바는 특정 배너가 보일때마다 색상을 다르게 한다. 
+   각 배너의 <li>태그에 data- 속성을 부여하여 고유의 프로그레스바 컬러값을 넣어준 후,
+   고유의 프로그레스바 컬러값을 스크립트에서 가지고와 프로그레스바에 색상을 넣어준다.
+   HTML : <li data-progress="#999"></li>
+   JS : var progressColor = bannerCont.eq(currIdx).attr('data-progress');
+     $('#progressbar').css({'background-color':progressColor});
+   * 이 때, bannerCont = <li></li> 
+
+6. 배너는 자동으로 동작한다.
+    var autoSlider = setInterval(sliderMove,time);
+    autoSlider라는 변수에 setInterval() 함수를 할당. (clearInterval을 처리하기 위해)
+    위의 내용은 이런식으로도 쓸 수 있다.
+    var autoSlider = setInterval(function(){
+                        sliderMove();
+                   }, time);
+
+7. 버튼을 클릭할 때 배너를 컨트롤 할 수 있다.
+    $('.btns a').click(function(){
+        // 버튼 클릭 시 동작할 내용.
+  });
+    1) 먼저 자동으로 롤링되고 있는 슬라이더를 멈춰준다.
+        clearInterval(autoSlider);
+    2) 슬라이더의 모든 내용은 currIdx를 통해 컨트롤 되므로, 이전/다음 버튼을 눌렀을 때 currIdx의 값을 변경해준다.
+        if($(this).hasClass() == 'btn_prev') currIdx--; //currIdx-- = currIdx-1
+     else if($(this).hasClass() == 'btn_next') currIdx++; //currIdx++ = currIdx+1
+    3) 다시 슬라이더를 동작시킨다.
+        sliderMove();
+    autoSlider = setInterval(sliderMove,time);
+        먼저 한 번 실행한 뒤, time 이후에 동작하는 autoSlider를 다시 넣어준다.
+        
+---------------------------------------------------------------------------------------------------------------------------------------
+
+* .html() 메소드
+: 선택자 안의 내용을 괄호 안의 내용으로 바꿈.
+: .html() = .empty().append(‘추가할내용')
+※ .empty() : 선택자 안의 내용을 전부 비움. 삭제.
+※ .append() : 선택자 안의 내용에 괄호 안의 내용을 추가
+※ 하나의 선택자에 여러개의 메소드를 연결할 수 있음. 예) $(‘#elem’),empty().append(‘<div></div>’);
+
+* .attr() 메소드
+: 태그의 attribute(속성)을 컨트롤.
+예) $(‘#elem’).attr(‘color’) : #elem의 color 값을 반환.
+예) $(‘#elem’).attr(‘color’,’#000’) : #elem의 color를 #000으로 변경
+※ 속성값이 하나인 경우의 문법 : .attr(‘color’,’#000’);
+※ 속성값이 두개 이상인 경우의 문법 : .attr({‘color’:’#000’, ‘opacity’:0.5)};
+
+* .hasClass() 메소드
+: 태그가 해당 클래스를 가지고 있는지 확인.
+예) $(‘div’).hasClass(‘apple’) : apple이라는 클래스를 가지고 있는 div
+예) if($(‘div’).hasClass() == ‘apple’) : div가 apple이라는 클래스를 가지고 있다면
+     if($(‘div’).attr(‘class’) == ‘apple’) 과 동일하게 동작.
+: 비슷한 메소드로는 addClass(), removeClass() 가 있다.
+: addClass() : 클래스 추가
+: removeClass() : 클래스 삭제
+
+* data- 속성
+: 태그에 ‘data-’ 접두어를 붙여 새로운 속성을 만들 수 있음.
+예) <div data-color=”#fff”></div>, <div data-curr-number=”11”></div>................
+
+* setInterval, setTimeout, clearInterval
+- setInterval : 일정 시간마다 반복해서 동작
+- setTimeout : 일정 시간 이후에 동작 (1번 동작)
+- clearInterval : setInterval 삭제
+ ※ 대소문자 구분 주의하기
+
+: 표기 방법
+1. setInterval( 함수명, 시간);
+2. setInterval({
+	동작내용
+          }, 시간);
+
+:표기 예시
+1. setTimeout(viewAlert, 2000);
+    function viewAlert(){
+	alert('aaaa');
+    }
+2. setTimeout(function(){
+	alert('aaaa');
+    },2000);
+ ※ 시간 1s=1000ms
+
+* 항상 확장성 있게 작업을 하는 습관을 들이자.
+작업을 할 때에는 확장성 있게 작업하는 것이 좋다. 확장성있게 작업을 해두면 운영/유지/보수를 할 때 크게 코드를 손보지 않아도 간단하게 수정할 수 있다.
+예) 슬라이더의 시간을 time이라는 변수로 처리해두면 클라이언트 컨펌 시, 슬라이더 속도 조절을 해달라고 할 때 쉽게 time의 값만 변경하면 된다.
+
+* <style></style>, <script></script> 넣는 위치
+: 스타일시트와 스크립트를 마크업문서 내에 인라인으로 추가하는 경우 어디에 추가하는 것이 좋을까?
+페이지는 랜더링 될 때, 위에서 아래 순서로 차례차례 랜더링한다.
+1. 스타일시트 : 순서는 무방하나 스타일시트가 아래에 선언되어 있으면, 와이어프레임이 나온 후 나중에 정렬되니 일반적으로 <head></head> 내에 선언.
+2. 스크립트 : 스크립트 내 onload 이벤트 발생하기 전 대기 상태이나, onload 이후 오류 발생하는 순간 페이지 자체의 랜더링을 모두 중지시켜버리기 때문에, 최악의 상황을 대비하여 </body> 닫는태그 바로 위에 선언하는 추세.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+2017.02.06
+
+
+https://www.xetown.com/
+
+
+
+
+
+
+
+
+
+
+2017.02.08
+
+<style type="text/css">
+		.middle{
+
+		}
+		.middle ul{
+
+		}
+		.middle ul li{
+			background-color:#f15e7b;
+			text-align: center;
+
+		}
+		
+		.middle ul li a{
+			float: left;
+			height:60px;
+			width:20%;
+			font-size:20px;
+			line-height: 60px;
+			display: block;
+			background-color:#f15e7b;
+			font-weight: bold;
+			color:#fff;
+
+		}
+		.middle ul li:first-child a{
+			background-color:black;
+
+		}
+
+	</style>
+<nav class = "navigation">
+			<div class = "valign">
+				<div class = "middle">
+					<ul>
+						<li>
+							<a href="">
+								Menu
+							</a>
+						</li>
+						<li>
+							<a href="">
+								1
+							</a>
+						</li>
+						<li>
+							<a href="">
+								2
+							</a>
+						</li>
+						<li>
+							<a href="">
+								3
+							</a>
+						</li>
+						<li>
+							<a href="">
+								4
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
