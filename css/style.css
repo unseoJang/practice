@@ -7,4 +7,4 @@
 .slide_view  ul li{float:left;width: 640px;}
 .carusel ul li{float:left;margin-right: 3px;}
 .carusel ul li a{background-color:orange;border-radius:50%;display:inline-block;width:10px;height:10px;text-indent:99999px;}
-.carusel ul li a.active{background-color:green;}
+.carusel ul li.active a{background-color:green;}

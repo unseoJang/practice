@@ -1,4 +1,4 @@
-var $slide;
+var $slide = $('.slide_wrap');
 var slideIdx = 0;
 var slideLength = 0;
 var autoslide = '';
@@ -6,7 +6,7 @@ var autoslide = '';
 $(function(){
 	$slide = $('.slide_wrap');
 	slideLength = $slide.find('.slide_view ul li').length;
-	// autoslide = setInterval(slideNext, 4000);
+	// autoslide = setInterval(nextSlide, 3000);
 	$slide.find('.bt_control a').click(function(){
 
 		autoslide = '';
@@ -29,7 +29,7 @@ function prevSlide(){//bt_prev의 함수
 	slideMotion();
 }
 function slideMotion(){
-	$slide.find('.slide_view ul li').animate({"margin-left":-$slide.find('.slide_view ul li').outerWidth()*slideIdx});
+	$slide.find('.slide_view ul').animate({"margin-left":-$slide.find('.slide_view ul li').outerWidth()*slideIdx});
 	$slide.find('.slide_view ul li').removeClass('active');
 	$slide.find('.slide_view ul li').eq(slideIdx).addClass('active');
 	caruselMotion();
@@ -37,5 +37,4 @@ function slideMotion(){
 function caruselMotion(){
 	$('.carusel ul li').removeClass('active');
 	$('.carusel ul li').eq(slideIdx).addClass('active');
-
 }
