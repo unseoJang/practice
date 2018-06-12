@@ -4,7 +4,7 @@ var slideLength = 0;
 var autoslide = '';
 
 $(function(){
-	var slide = $('.slide_wrap');
+	$slide = $('.slide_wrap');
 	slideLength = $slide.find('.slide_view ul li').length;
 	// autoslide = setInterval(slideNext, 4000);
 	$slide.find('.bt_control a').click(function(){
@@ -28,11 +28,15 @@ function prevSlide(){//bt_prev의 함수
 	slideMotion();
 }
 function slideMotion(){
-	$slide.find('.slide_view ul li').animate({"margin-left":-$slide.find('.slide_view ul li').outerWidth()*currIdx});
+	$slide.find('.slide_view ul li').animate({"margin-left":-$slide.find('.slide_view ul li').outerWidth()*slideIdx});
 
 	caruselMotion();
 }
 function caruselMotion(){
+	console.log(slideIdx);
+	$slide.find('.slide_view ul li').removeClass('active');
+	$slide.find('.slide_view ul li').eq(slideIdx).addClass('active');
 	$('.carusel ul li').removeClass('active');
-	$('.carusel ul li').eq(currIdx).addClass('active');
+	$('.carusel ul li').eq(slideIdx).addClass('active');
+
 }
