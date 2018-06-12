@@ -9,6 +9,7 @@ $(function(){
 	// autoslide = setInterval(slideNext, 4000);
 	$slide.find('.bt_control a').click(function(){
 
+		autoslide = '';
 		if($(this).attr('class') == 'bt_prev') prevSlide();
 		else if($(this).attr('class') == 'bt_next') nextSlide();
 		return false;
@@ -29,13 +30,11 @@ function prevSlide(){//bt_prev의 함수
 }
 function slideMotion(){
 	$slide.find('.slide_view ul li').animate({"margin-left":-$slide.find('.slide_view ul li').outerWidth()*slideIdx});
-
+	$slide.find('.slide_view ul li').removeClass('active');
+	$slide.find('.slide_view ul li').eq(slideIdx).addClass('active');
 	caruselMotion();
 }
 function caruselMotion(){
-	console.log(slideIdx);
-	$slide.find('.slide_view ul li').removeClass('active');
-	$slide.find('.slide_view ul li').eq(slideIdx).addClass('active');
 	$('.carusel ul li').removeClass('active');
 	$('.carusel ul li').eq(slideIdx).addClass('active');
 
